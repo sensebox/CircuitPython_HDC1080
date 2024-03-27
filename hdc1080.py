@@ -49,6 +49,36 @@ HDC1080_HUMIDITY_REG = 0x01
 HDC1080_CONFIG_REG = 0x02
 
 class HDC1080:
+    """Library for the HDC1080 Temperature and Humidity Sensor.
+   
+    :param ~busio.I2C i2c_bus: The I2C bus the HDC1080 is connected to.
+    :param int address: The I2C device address. Defaults to :const:`0x40`
+
+    **Quickstart: Importing and using the HDC1080**
+
+        Here is an example of using the :class:`HDC1080` class.
+        First you will need to import the libraries to use the sensor
+
+        .. code-block:: python
+
+            import board
+            from hdc1080.basic import HDC1080
+
+        Once this is done you can define your `board.I2C` object and define your sensor object
+
+        .. code-block:: python
+
+            i2c = board.I2C()   # uses board.SCL and board.SDA
+            hdc = HDC1080(i2c)
+            
+            Now you have access to the :attr:`temperature` and :attr:`pressure` attributes.
+
+        .. code-block:: python
+
+            temperature = hdc.temperature
+            pressure = hdc.pressure
+
+    """
     def __init__(self, i2c, address=HDC1080_I2C_ADDR):
         self.i2c_device = I2CDevice(i2c, address)
         self._buffer = bytearray(2)
