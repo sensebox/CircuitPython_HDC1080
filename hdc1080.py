@@ -88,6 +88,10 @@ class HDC1080:
         with self.i2c_device as i2c:
             i2c.write(bytes([0x0, 0x0]))  # Writing to the configuration register to reset
 
+    """
+    read the temperature from the sensor and return it
+    """
+    
     @property
     def temperature(self):
         with self.i2c_device as i2c:
@@ -97,6 +101,10 @@ class HDC1080:
             raw_temp = (self._buffer[0] << 8) | self._buffer[1]
             return (raw_temp / 65536.0) * 165.0 - 40.0
 
+    """
+    read the humidity from the sensor and return it
+    """
+    
     @property
     def humidity(self):
         with self.i2c_device as i2c:
@@ -106,6 +114,10 @@ class HDC1080:
             raw_humidity = (self._buffer[0] << 8) | self._buffer[1]
             return (raw_humidity / 65536.0) * 100.0
 
+    """
+    read the serial_number from the sensor and return it
+    """
+    
     @property
     def serial_number(self):
         with self.i2c_device as i2c:
@@ -113,6 +125,11 @@ class HDC1080:
             time.sleep(0.1)  # Wait for serial number to be ready
             i2c.readinto(self._buffer)
             return (self._buffer[0] << 24) | (self._buffer[1] << 16) | (self._buffer[2] << 8) | self._buffer[3]
+
+
+    """
+    read the firmware_version from the sensor and return it
+    """
 
     @property
     def firmware_version(self):
@@ -122,6 +139,11 @@ class HDC1080:
             i2c.readinto(self._buffer)
             return (self._buffer[0] << 8) | self._buffer[1]
 
+
+    """
+    provide sensor configuration options
+    """
+    
     def configure(self, heater=False, mode='sequential', battery_status=False):
         config_value = 0x1000 if heater else 0x0000
         if mode == 'sequential':
