@@ -19,7 +19,7 @@ Introduction
     :alt: Code Style: Black
 
 
-.. todo:: Describe what the library does.
+Libray for the HDC1080 temperature and humidity sensor. 
 
 
 Dependencies
