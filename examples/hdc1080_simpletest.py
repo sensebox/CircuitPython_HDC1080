@@ -27,5 +27,3 @@ while True:
     print("Humidity: {:.2f} %".format(humidity))
 
     time.sleep(2)  # Wait for 2 seconds before next reading
-    
-
