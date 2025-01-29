@@ -19,7 +19,7 @@ HDC1080
     :alt: Code Style: Black
 
 
-Libray for the HDC1080 temperature and humidity sensor. 
+Libray for the HDC1080 temperature and humidity sensor.
 
 
 Dependencies
@@ -41,7 +41,6 @@ Installing from PyPI
 .. note:: This library is not available on PyPI yet. Install documentation is included
    as a standard element. Stay tuned for PyPI availability!
 
-.. todo:: Remove the above note if PyPI version is/will be available at time of release.
 
 On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
 PyPI <https://pypi.org/project/circuitpython-hdc1080/>`_.
@@ -92,8 +91,33 @@ Or the following command to update an existing version:
 Usage Example
 =============
 
-.. todo:: Add a quick, simple example. It and other examples should live in the
-examples folder and be included in docs/examples.rst.
+.. code-block:: python
+
+    import time
+    import board
+    import digitalio
+    from hdc1080 import HDC1080
+
+    # IO Enable Pin (only needed for senseBox MCU-S2)
+    io_enable_pin = digitalio.DigitalInOut(board.IO_POWER)
+    io_enable_pin.direction = digitalio.Direction.OUTPUT
+    io_enable_pin.value = False
+
+    # Initialize I2C bus
+    i2c = board.I2C()
+
+    # Initialize HDC1080 sensor
+    sensor = HDC1080(i2c)
+
+    while True:
+        temperature = sensor.temperature
+        humidity = sensor.humidity
+
+        print("Temperature: {:.2f} °C".format(temperature))
+        print("Humidity: {:.2f} %".format(humidity))
+
+        time.sleep(2)  # Wait for 2 seconds before next reading
+
 
 Documentation
 =============
