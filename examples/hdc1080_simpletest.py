@@ -3,10 +3,10 @@
 #
 # SPDX-License-Identifier: Unlicense
 
-import board
 import time
-from hdc1080 import HDC1080
+import board
 import digitalio
+from hdc1080 import HDC1080
 
 # IO Enable Pin (only needed for senseBox MCU-S2)
 io_enable_pin = digitalio.DigitalInOut(board.IO_POWER)

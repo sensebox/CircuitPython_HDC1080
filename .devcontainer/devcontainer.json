@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Felix Erdmann, written for re:edu
+// SPDX-FileCopyrightText: Copyright (c) 2025 sensebox
+//
+// SPDX-License-Identifier: Unlicense
+
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
@@ -7,8 +12,6 @@
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
-
-
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

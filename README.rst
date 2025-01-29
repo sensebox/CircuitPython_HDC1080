@@ -19,7 +19,7 @@ HDC1080
     :alt: Code Style: Black
 
 
-Libray for the HDC1080 temperature and humidity sensor. 
+Libray for the HDC1080 temperature and humidity sensor.
 
 
 Dependencies
