@@ -72,7 +72,7 @@ class HDC1080:
             i2c = board.I2C()   # uses board.SCL and board.SDA
             hdc = HDC1080(i2c)
 
-            Now you have access to the :attr:`temperature` and :attr:`humidity` attributes.
+        Now you have access to the :attr:`temperature` and :attr:`humidity` attributes.
 
         .. code-block:: python
 

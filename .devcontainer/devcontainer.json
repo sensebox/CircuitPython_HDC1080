@@ -17,7 +17,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip install pre-commit",
+	"postCreateCommand": "pip install pre-commit && pre-commit install",
 
 	// Configure tool-specific properties.
 	"customizations": {
